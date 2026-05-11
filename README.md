@@ -82,7 +82,7 @@ The application is deployed using Vercel.
 
 Production URL:
 
-https://your-vercel-url.vercel.app
+https://ledgerloop-eight.vercel.app/
 
 # Decisions & Trade-offs
 
