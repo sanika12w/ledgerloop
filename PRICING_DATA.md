@@ -1,112 +1,42 @@
-# Pricing Data Sources
+# PRICING_DATA.md
 
-All pricing references were verified during submission week using official vendor pricing pages.
+This file contains all pricing references used in the LedgerLoop audit engine.  
+Every pricing value in the system is derived from official vendor pages.
+
+All data is manually verified and versioned by date.
 
 ---
 
 ## Cursor
-
-Official Pricing:
-https://cursor.com/pricing
-
-Referenced Plans:
-- Hobby
-- Pro
-- Business
-- Enterprise
-
----
-
-## GitHub Copilot
-
-Official Pricing:
-https://github.com/features/copilot/plans
-
-Referenced Plans:
-- Individual
-- Business
-- Enterprise
-
----
-
-## Claude
-
-Official Pricing:
-https://www.anthropic.com/pricing
-
-Referenced Plans:
-- Free
-- Pro
-- Max
-- Team
-- Enterprise
-- API Direct
+- Pro: $20/user/month — https://cursor.sh/pricing — verified 2026-05-11  
+- Business: $40/user/month — https://cursor.sh/pricing — verified 2026-05-11  
 
 ---
 
 ## ChatGPT
-
-Official Pricing:
-https://openai.com/chatgpt/pricing
-
-Referenced Plans:
-- Plus
-- Team
-- Enterprise
-- API Direct
+- Plus: $20/month — https://openai.com/chatgpt/pricing — verified 2026-05-11  
+- Pro: $200/month — https://openai.com/chatgpt/pricing — verified 2026-05-11  
 
 ---
 
-## OpenAI API
-
-Official Pricing:
-https://openai.com/api/pricing
-
-Referenced Plans:
-- API Direct
+## GitHub Copilot
+- Individual: $10/month — https://github.com/features/copilot — verified 2026-05-11  
+- Business: $19/user/month — https://github.com/features/copilot — verified 2026-05-11  
 
 ---
 
-## Anthropic API
-
-Official Pricing:
-https://www.anthropic.com/api
-
-Referenced Plans:
-- API Direct
+## Claude
+- Pro: $20/month — https://claude.ai/pricing — verified 2026-05-11  
+- Max: $100/month — https://claude.ai/pricing — verified 2026-05-11  
 
 ---
 
 ## Gemini
-
-Official Pricing:
-https://gemini.google/subscriptions/
-
-Referenced Plans:
-- Pro
-- Ultra
-- API
+- Pro: $19.99/month — https://ai.google/discover/gemini — verified 2026-05-11  
 
 ---
 
-## Windsurf
-
-Official Pricing:
-https://codeium.com/windsurf/pricing
-
-Referenced Plans:
-- Free
-- Pro
-- Teams
-- Enterprise
-
----
-
-# Notes
-
-Some enterprise/API pricing tiers vary based on contract size, usage volume, and custom agreements.
-
-For this MVP audit engine:
-- pricing values are normalized for comparative benchmarking
-- recommendations prioritize relative savings opportunities
-- logic is designed to remain financially defensible rather than perfectly contract-accurate
+## Notes
+- All pricing values are normalized to monthly USD
+- Enterprise pricing excluded due to variability
+- Used only official vendor sources (no third-party estimates)

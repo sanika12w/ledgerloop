@@ -1,40 +1,31 @@
-# LedgerLoop — Prompt Design & System Rules
+# PROMPTS.md
 
-LedgerLoop is a deterministic AI spend optimization engine.
-It does NOT use AI for reasoning. All outputs are rule-based and explainable.
-
----
-
-#  CORE PRINCIPLES
-
-All outputs must be:
-
-- Deterministic (same input → same output)
-- Realistic (no inflated savings)
-- Capped (no extreme % multipliers)
-- Honest (no fake savings if system is already optimal)
-- Explainable (every recommendation must map to a rule)
-- Tool-aware (Gemini ≠ ChatGPT ≠ Windsurf)
-- Use-case aware (Coding ≠ Writing ≠ Research)
+This file documents all LLM prompts used in LedgerLoop, including reasoning behind their design and iterations.
 
 ---
 
-#  INPUT STRUCTURE
+## 1. Audit Summary Prompt
 
-```ts
-AuditFormData = {
-  tools: {
-    tool: string;
-    plan: string;
-    monthlySpend: number;
-    seats: number;
-  }[];
+### Purpose
+Generate a concise explanation of AI tool spending inefficiencies.
 
-  teamSize: number;
+### Prompt Used
 
-  primaryUseCase:
-     "Coding"
-     "Writing"
-     "Research"
-     "Mixed";
-}
+Summarize AI tool usage for a startup.
+
+Focus only on:
+
+inefficiencies in spending
+redundant tools
+key savings opportunities
+
+Tone:
+
+minimal
+sharp
+business executive style
+
+Rules:
+
+max 120 words
+no explanations outside insights

@@ -1,147 +1,122 @@
-# LedgerLoop — AI Spend Optimization Engine
+# README.md
 
-LedgerLoop is a deterministic SaaS audit tool that helps teams analyze and optimize their AI tool spending. It detects inefficiencies such as over-provisioned seats, overlapping AI tools, and overpriced plans, and provides actionable cost-saving recommendations.
+# LedgerLoop
 
----
+LedgerLoop is an AI spend optimization platform that helps teams analyze their AI tooling costs and discover potential savings opportunities. Users can audit tools like Cursor, ChatGPT, Claude, GitHub Copilot, and Gemini, generate AI-powered optimization recommendations, and share audit reports using public links.
 
-## 🚀 Features
+The platform is designed for startups, developers, and modern teams that use multiple AI subscriptions and want better visibility into AI spending.
 
-- AI tool spend audit in under 60 seconds
-- Deterministic rule-based recommendation engine (no AI hallucination)
-- Detects:
-  - Overpriced enterprise plans
-  - Unused seats
-  - Overlapping AI tools
-  - High API spend inefficiencies
-  - Cheaper alternative tools
-- Email delivery of audit results via Resend
-- Shareable audit URL with public view
-- Supabase-powered storage
-- Rate limiting + honeypot spam protection
+# Features
 
----
+* AI stack audit form
+* Cost-saving recommendation engine
+* AI-generated optimization summaries
+* Shareable public audit reports
+* Lead capture system
+* Rate limiting + spam protection
+* Supabase database integration
+* Responsive modern UI
 
-## 🧠 How It Works
+# Screenshots / Demo
 
-### 1. User Input
-Users enter:
-- AI tools used
-- Plan type
-- Monthly spend
-- Seat count
-- Team size
-- Primary use case
+Add screenshots here:
 
----
+## Audit Form
 
-### 2. Audit Engine (Deterministic Rules)
+<img width="100%" alt="Audit Form  Screenshot" src="./public/screenshots/form.png" />
 
-The system evaluates:
+## Audit Results
 
-- Seat inefficiency
-- Plan mismatch (small teams on enterprise tiers)
-- Tool duplication (ChatGPT / Claude / Gemini overlap)
-- Coding assistant redundancy
-- API usage inefficiencies
-- High spend enterprise negotiation potential
-- Cheaper alternative AI tools
+<img width="100%" alt="Results Screenshot" src="./public/screenshots/result.png" />
 
-No AI models are used in the recommendation engine — all logic is deterministic.
+## Shared Audit Report
 
----
+<img width="100%" alt="Shared Report Screenshot" src="./screenshots/sharedReport.png" />
 
-### 3. Savings Calculation
+OR add a Loom/YouTube demo link:
 
-Savings are:
-- Capped to avoid unrealistic outputs
-- Based on real-world SaaS pricing heuristics
-- Prevent inflated percentage-based estimates
+Demo Video: https://your-demo-link.com
 
----
+# Quick Start
 
-### 4. Data Storage
+## 1. Clone Repository
 
-Audits are stored in Supabase:
+```bash
+git clone https://github.com/sanika12w/ledgerloop
+cd ledgerloop
+```
 
-- Table: `audits`
-- Fields:
-  - `id` (UUID)
-  - `tools`
-  - `recommendations`
-  - `total_savings`
+## 2. Install Dependencies
 
----
+```bash
+npm install
+```
 
-### 5. Email Delivery
+## 3. Configure Environment Variables
 
-Uses Resend:
+Create a `.env.local` file:
 
-- Sends audit summary email after generation
-- Includes conditional insights based on savings level
+```env
+NEXT_PUBLIC_SUPABASE_URL=YOUR_SUPABASE_URL
+NEXT_PUBLIC_SUPABASE_ANON_KEY=YOUR_SUPABASE_ANON_KEY
+SUPABASE_SERVICE_ROLE_KEY=YOUR_SERVICE_ROLE_KEY
+OPENAI_API_KEY=YOUR_OPENAI_KEY
+RESEND_API_KEY=YOUR_RESEND_KEY
+```
 
----
+## 4. Run Locally
 
-### 6. Shareable Audit Link
+```bash
+npm run dev
+```
 
-Each audit generates:
+Open:
 
-## 🔐 Abuse Protection
+```text
+http://localhost:3000
+```
 
-LedgerLoop implements multiple layers of protection:
+# Deployment
 
-### 1. Rate Limiting
-- IP-based request throttling
-- Prevents spam submissions
-- Returns HTTP 429 when exceeded
+The application is deployed using Vercel.
 
-### 2. Honeypot Field
-- Hidden input field in form
-- Bots often fill it → auto-blocked
+Production URL:
 
-### 3. Input Validation
-- Email format validation
-- Spend & seat sanity checks
+https://your-vercel-url.vercel.app
 
-## 📊 Tech Stack
+# Decisions & Trade-offs
 
-- Next.js (App Router)
-- TypeScript
-- Supabase (Database)
-- Resend (Email API)
-- TailwindCSS (UI)
+## 1. Used deterministic savings logic instead of full AI analysis
 
+This ensured faster responses, lower API costs, and more predictable recommendations.
 
-## 📁 Project Structure
+## 2. Stored audits in Supabase instead of local JSON files
 
-/app
-  /api
-    /audit
-    /summary
-  /audit/[id]
-/components
-/lib
-  supabaseClient.ts
-  rateLimit.ts
-/utils
-  auditEngine.ts
+Supabase enabled scalable storage and public shareable links with minimal backend setup.
 
-  ## 🔥 Key Design Principle
+## 3. Used client-side localStorage persistence
 
-No AI-generated financial reasoning is used.
+This improved user experience by preventing accidental form data loss during refreshes.
 
-All recommendations are:
-- deterministic
-- explainable
-- rule-based
+## 4. Added lightweight in-memory rate limiting
 
-## 🚀 Future Improvements
+A simple custom rate limiter was sufficient for assignment-scale abuse protection without requiring Redis infrastructure.
 
-- Pricing benchmark database per AI tool
-- Recommendation scoring system
-- Confidence % per suggestion
-- PDF export of audit reports
-- Team analytics dashboard
+## 5. Chose Next.js App Router architecture
 
-## Author
+This simplified API routes, server rendering, metadata handling, and deployment on Vercel.
 
-Built as a deterministic AI spend optimization system for SaaS teams.
+# Tech Stack
+
+* Next.js 16
+* React
+* TypeScript
+* Tailwind CSS
+* Supabase
+* OpenAI API
+* Resend
+* Vercel
+
+# Author
+
+Sanika Walunj
